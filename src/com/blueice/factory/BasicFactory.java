@@ -35,9 +35,10 @@ public class BasicFactory {
 	
 	/**
 	 * 这个方法可以可返回dao,也可返回service.
-	 * 
 	 * 根据方法的参数值，来确定是返回Custdao还是Custservice.
 	 * 再根据配置文件，来确定是返回哪种dao和service
+	 * 
+	 * 第一个<T>是定义一个泛型，后面的T 函数是返回值类型。
 	 * @param clazz
 	 * @return
 	 */
@@ -56,46 +57,7 @@ public class BasicFactory {
 		}
 
 	}
-	
-	
-	
-	/**
-	 * 通过配置文件中的设置，获取CustDao的对象
-	 * @return
-	 */
-	public CustDao getDao(){
-		
-		try {
-			
-			String clazz = prop.getProperty("CustDao");
-			return (CustDao)Class.forName(clazz).newInstance();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
 
-	}
-	
-	
-	/**
-	 * 通过配置文件中的设置，获取CustService的对象
-	 * @return
-	 */
-	public CustService getService(){
-		
-		try {
-			
-			String clazz = prop.getProperty("CustService");
-			return (CustService)Class.forName(clazz).newInstance();
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-		
-	}
 }
 
 

@@ -24,7 +24,7 @@
     -->
 
 	<property name="driverClass">com.mysql.jdbc.Driver</property>
-	<property name="jdbcUrl">jdbc:mysql://localhost/Estore</property>
+	<property name="jdbcUrl">jdbc:mysql://localhost/estore</property>
 	<property name="user">estore</property>
 	<property name="password">estore</property>
 
