@@ -42,14 +42,14 @@ public class BasicFactory {
 	 * @param clazz
 	 * @return
 	 */
-
+	@SuppressWarnings("unchecked")
 	public <T> T getInstance(Class<T> clazz){
 		
 		try {
 			
-			String className = clazz.getName();
-			
-			return (T)Class.forName(prop.getProperty(className)).newInstance();
+			String className = clazz.getSimpleName();
+			String implName = prop.getProperty(className);
+			return (T)Class.forName(implName).newInstance();
 
 		} catch (Exception e) {
 			e.printStackTrace();
