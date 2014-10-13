@@ -1,18 +1,15 @@
 package com.blueice.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.beanutils.BeanUtils;
-
 import com.blueice.domain.User;
 import com.blueice.factory.BasicFactory;
 import com.blueice.service.UserService;
+import com.blueice.utils.MD5Utils;
 
 public class registServlet extends HttpServlet {
 
@@ -39,6 +36,9 @@ public class registServlet extends HttpServlet {
 		    //2.封装数据校验数据。
 			User user = new User();
 			BeanUtils.populate(user, request.getParameterMap());
+			
+			//取出用户密码MD5加密后，再存入。
+			user.setPassword(MD5Utils.md5(user.getPassword()));
 			
 			//3.调用Service添加用户。
 			Service.registUser(user);

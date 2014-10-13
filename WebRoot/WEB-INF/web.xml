@@ -20,14 +20,13 @@
   
   <!-- 全站错误页面 -->
   <error-page>
-  	<exception-type>java.lang.Throwable</exception-type>
-  	<location>/error/500.jsp</location>
-  </error-page>
-  
-    <error-page>
-  	<exception-type>404</exception-type>
-  	<location>/error/404.jsp</location>
-  </error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>
   
   
   <!-- 过滤器配置 -->
@@ -49,6 +48,21 @@
     <servlet-name>ValiImg</servlet-name>
     <servlet-class>com.blueice.web.ValiImg</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ActiveServlet</servlet-name>
+    <servlet-class>com.blueice.web.ActiveServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>com.blueice.web.loginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>com.blueice.web.logoutServlet</servlet-class>
+  </servlet>
+
+
+
 
 
   <servlet-mapping>
@@ -58,6 +72,18 @@
   <servlet-mapping>
     <servlet-name>ValiImg</servlet-name>
     <url-pattern>/ValiImg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActiveServlet</servlet-name>
+    <url-pattern>/ActiveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/logoutServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

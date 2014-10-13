@@ -12,6 +12,17 @@ public interface UserService {
 	 */
 	void registUser(User user);
 
-	
+	/**
+	 * 用户激活
+	 * @param activeCode 激活码
+	 */
+	User activeUser(String activeCode);
+
+	/**
+	 * 根据用户名密码查找用户
+	 * @param username
+	 * @param password
+	 */
+	User getUserByNameAndPsw(String username, String password);
 	
 }

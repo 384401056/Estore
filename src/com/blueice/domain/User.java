@@ -1,11 +1,10 @@
 package com.blueice.domain;
 
 import java.io.Serializable;
-
-import com.sun.jmx.snmp.Timestamp;
+import java.sql.Timestamp;
 
 public class User implements Serializable {
-
+	private int id;
 	private String username;
 	private String password;
 	private String nickname;
@@ -15,6 +14,14 @@ public class User implements Serializable {
 	private String activecode;
 	private Timestamp updatetime;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -57,12 +64,12 @@ public class User implements Serializable {
 	public void setActivecode(String activecode) {
 		this.activecode = activecode;
 	}
+	
 	public Timestamp getUpdatetime() {
 		return updatetime;
 	}
 	public void setUpdatetime(Timestamp updatetime) {
 		this.updatetime = updatetime;
 	}
-	
-	
+
 }

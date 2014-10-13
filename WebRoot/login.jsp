@@ -7,11 +7,12 @@
   <body>
     <div align="center">
     <h1>My Estore 登陆</h1><hr>
-	    <form action="${pageContext.request.contextPath}/servlet/login" method="POST">
+    	<font color="red">${msg }</font>
+	    <form action="${pageContext.request.contextPath}/loginServlet" method="POST">
 			<table>
 				<tr>
 					<td>用户名：</td>
-					<td><input type="text" name="username"/></td>
+					<td><input type="text" name="username" value="${param.username }"/></td>
 				</tr>
 				
 				<tr>

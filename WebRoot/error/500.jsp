@@ -5,7 +5,8 @@
 </head>
 <body>
 	<div align="center">
-		<h2>服务器出错了....Sorry.</h2>
+		<h2>服务器出错了....Sorry.</h2><hr>
+		${pageContext.exception.message }
 	</div>
 </body>
 </html>
