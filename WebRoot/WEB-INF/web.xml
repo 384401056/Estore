@@ -28,6 +28,10 @@
 		<location>/error/404.jsp</location>
 	</error-page>
   
+  <!-- Sesson监听器 -->
+  <listener>
+  	<listener-class>com.blueice.listener.MySessionListener</listener-class>
+  </listener>
   
   <!-- 过滤器配置 -->
   <filter>
@@ -60,7 +64,38 @@
     <servlet-name>logoutServlet</servlet-name>
     <servlet-class>com.blueice.web.logoutServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <servlet-name>addProdServlet</servlet-name>
+    <servlet-class>com.blueice.web.addProdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>prodListServlet</servlet-name>
+    <servlet-class>com.blueice.web.prodListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImgServlet</servlet-name>
+    <servlet-class>com.blueice.web.ImgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>prodInfoServlet</servlet-name>
+    <servlet-class>com.blueice.web.prodInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>addCarServlet</servlet-name>
+    <servlet-class>com.blueice.web.addCarServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>delCarServlet</servlet-name>
+    <servlet-class>com.blueice.web.delCarServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ChangeCartServlet</servlet-name>
+    <servlet-class>com.blueice.web.ChangeCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>clearCarServlet</servlet-name>
+    <servlet-class>com.blueice.web.clearCarServlet</servlet-class>
+  </servlet>
 
 
 
@@ -85,5 +120,37 @@
     <servlet-name>logoutServlet</servlet-name>
     <url-pattern>/logoutServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+    <servlet-name>addProdServlet</servlet-name>
+    <url-pattern>/addProdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>prodListServlet</servlet-name>
+    <url-pattern>/prodListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImgServlet</servlet-name>
+    <url-pattern>/ImgServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>prodInfoServlet</servlet-name>
+    <url-pattern>/prodInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addCarServlet</servlet-name>
+    <url-pattern>/addCarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>delCarServlet</servlet-name>
+    <url-pattern>/delCarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeCartServlet</servlet-name>
+    <url-pattern>/ChangeCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>clearCarServlet</servlet-name>
+    <url-pattern>/clearCarServlet</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>

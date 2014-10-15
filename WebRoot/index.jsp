@@ -18,6 +18,9 @@
 
 	    <c:if test="${sessionScope.user!=null}">
 	    	欢迎回来！${sessionScope.user.username}<br>
+	    	<a href="${pageContext.request.contextPath}/addprod.jsp">添加商品</a>
+	    	<a href="${pageContext.request.contextPath}/prodListServlet">商品列表</a>
+	    	<a href="${pageContext.request.contextPath}/car.jsp">我的购物车</a>
 	    	<a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
 	    </c:if>
 	</div>
