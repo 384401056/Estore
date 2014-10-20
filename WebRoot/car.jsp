@@ -26,6 +26,7 @@
 		<div align="right">
 			<a href="${pageContext.request.contextPath}/prodListServlet">继续购物</a>
 			<a href="${pageContext.request.contextPath}/clearCarServlet">请空购物车</a>
+			<a href="${pageContext.request.contextPath}/addOrder.jsp"><img src="${pageContext.request.contextPath }/img/gotoorder.bmp"/></a>
 		</div>
 	
 		<table width="100%" style="text-align: center;" border="1">

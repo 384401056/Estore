@@ -10,7 +10,7 @@ import com.blueice.factory.BasicFactory;
 public class ProductServiceImpl implements ProductService {
 
 	
-	ProductDao dao = BasicFactory.getFactory().getInstance(ProductDao.class);
+	ProductDao dao = BasicFactory.getFactory().getDao(ProductDao.class);
 	
 	@Override
 	public void addProduct(Product product) {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.blueice.domain.Product;
 
-public interface ProductService {
+public interface ProductService extends Service {
 
 	/**
 	 * 添加商品

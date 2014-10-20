@@ -2,7 +2,7 @@ package com.blueice.dao;
 
 import com.blueice.domain.User;
 
-public interface UserDao {
+public interface UserDao extends Dao {
 
 	/**
 	 * 根据用户名查找用户
@@ -45,6 +45,14 @@ public interface UserDao {
 	 * @return 找到的用户bean
 	 */
 	User findUserByNameAndPsw(String username, String password);
+
+
+	/**
+	 * 根据用户Id查找用户。
+	 * @param id
+	 * @return
+	 */
+	User findUserById(int id);
 	
 	
 	

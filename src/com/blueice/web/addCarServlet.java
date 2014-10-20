@@ -17,7 +17,7 @@ public class addCarServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ProductService service = BasicFactory.getFactory().getInstance(
+		ProductService service = BasicFactory.getFactory().getService(
 				ProductService.class);
 
 		// 1.获取商品id.

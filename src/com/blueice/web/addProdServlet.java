@@ -35,7 +35,7 @@ public class addProdServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		
-		ProductService service = BasicFactory.getFactory().getInstance(ProductService.class);
+		ProductService service = BasicFactory.getFactory().getService(ProductService.class);
 		
 		/*1.上传图片。-------*/
 		

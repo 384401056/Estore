@@ -1,10 +1,11 @@
 package com.blueice.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.blueice.domain.Product;
 
-public interface ProductDao {
+public interface ProductDao extends Dao {
 
 	/**
 	 * 添加商品到数据库。
@@ -24,5 +25,20 @@ public interface ProductDao {
 	 * @return    商品Bean.
 	 */
 	Product findProdById(String id);
+
+	/**
+	 * 扣除商品数据
+	 * @param product_id 商品id
+	 * @param buynum  商品数量
+	 * @throws SQLException 
+	 */
+	void delProdNum(String product_id, int buynum) throws SQLException;
+
+	/**
+	 * 加回商品数据
+	 * @param product_id 商品id
+	 * @param buynum   商品数量
+	 */
+	void addProdNum(String product_id, int buynum);
 
 }

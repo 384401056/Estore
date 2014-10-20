@@ -19,7 +19,7 @@
   
   
   <!-- 全站错误页面 -->
-  <error-page>
+	<error-page>
 		<exception-type>java.lang.Throwable</exception-type>
 		<location>/error/500.jsp</location>
 	</error-page>
@@ -96,6 +96,21 @@
     <servlet-name>clearCarServlet</servlet-name>
     <servlet-class>com.blueice.web.clearCarServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>addOrderServlet</servlet-name>
+    <servlet-class>com.blueice.web.addOrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>orderListServlet</servlet-name>
+    <servlet-class>com.blueice.web.orderListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>delOrderServlet</servlet-name>
+    <servlet-class>com.blueice.web.delOrderServlet</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -151,6 +166,18 @@
   <servlet-mapping>
     <servlet-name>clearCarServlet</servlet-name>
     <url-pattern>/clearCarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addOrderServlet</servlet-name>
+    <url-pattern>/addOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>orderListServlet</servlet-name>
+    <url-pattern>/orderListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>delOrderServlet</servlet-name>
+    <url-pattern>/delOrderServlet</url-pattern>
   </servlet-mapping>
  
 </web-app>

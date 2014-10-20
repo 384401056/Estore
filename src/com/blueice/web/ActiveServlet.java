@@ -16,7 +16,7 @@ public class ActiveServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		
 		//1.获取激活码。
 		String activeCode = request.getParameter("activecode");

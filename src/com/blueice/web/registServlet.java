@@ -18,7 +18,7 @@ public class registServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		UserService Service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService Service = BasicFactory.getFactory().getService(UserService.class);
 		
 		try {
 		

@@ -15,7 +15,7 @@ public class loginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		
 		//1.获取用户名和密码。
 		String userName = request.getParameter("username");

@@ -17,7 +17,7 @@ import com.blueice.factory.BasicFactory;
 public class UserServiceImpl implements UserService {
 
 	
-	UserDao dao = BasicFactory.getFactory().getInstance(UserDao.class);
+	UserDao dao = BasicFactory.getFactory().getDao(UserDao.class);
 	
 	@Override
 	public void registUser(User user) {
