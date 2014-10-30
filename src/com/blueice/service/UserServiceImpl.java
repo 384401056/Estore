@@ -103,6 +103,12 @@ public class UserServiceImpl implements UserService {
 		return dao.findUserByNameAndPsw(username,password);
 	}
 
+	@Override
+	public boolean hasUser(String username) {
+		
+		return dao.findUserByName(username)!=null;
+	}
+
 }
 
 

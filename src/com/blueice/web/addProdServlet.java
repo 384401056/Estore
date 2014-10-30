@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.blueice.domain.Product;
+import com.blueice.domain.ProgressMsg;
 import com.blueice.factory.BasicFactory;
 import com.blueice.service.ProductService;
 import com.blueice.utils.IOUtils;
@@ -31,7 +34,7 @@ import com.blueice.utils.PicUtils;
 public class addProdServlet extends HttpServlet {
 
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(final HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		
@@ -56,7 +59,64 @@ public class addProdServlet extends HttpServlet {
 		ServletFileUpload fileUpload = new ServletFileUpload(factory);
 		fileUpload.setHeaderEncoding(encode);     //文件名中文乱码处理。
 		fileUpload.setFileSizeMax(1024*1024*10);  //单个上传文件的大小限制
-		fileUpload.setSizeMax(1024*1024*100);		 //总的上传大小限制
+		fileUpload.setSizeMax(1024*1024*100);		//总的上传大小限制
+		
+		//文件上传监听器。
+		fileUpload.setProgressListener(new ProgressListener() {
+			
+			Long beginTime = System.currentTimeMillis();
+			@Override
+			public void update(long bytesRead, long contentLength, int items) {
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				ProgressMsg progressMsg = new ProgressMsg();
+				
+				BigDecimal br = new BigDecimal(bytesRead).divide(new BigDecimal(1024),2,BigDecimal.ROUND_HALF_UP);
+				BigDecimal cl = new BigDecimal(contentLength).divide(new BigDecimal(1024),2,BigDecimal.ROUND_HALF_UP);
+				System.out.print("当前读取的是第"+items+"个上传项,总大小"+cl+"KB,已经读取"+br+"KB");
+				//剩余字节数
+				BigDecimal ll = cl.subtract(br);
+				System.out.print("剩余"+ll+"KB");
+				//上传百分比
+				BigDecimal per = br.multiply(new BigDecimal(100)).divide(cl,2,BigDecimal.ROUND_HALF_UP);
+				System.out.print("已经完成"+per+"%");
+				
+				progressMsg.setPer(per.toString());
+				
+				
+				//上传用时
+				Long nowTime = System.currentTimeMillis();
+				Long useTime = (nowTime - beginTime)/1000;
+				System.out.print("已经用时"+useTime+"秒");
+				//上传速度
+				BigDecimal speed = new BigDecimal(0);
+				if(useTime!=0){
+					speed = br.divide(new BigDecimal(useTime),2,BigDecimal.ROUND_HALF_UP);
+				}
+				System.out.print("上传速度为"+speed+"KB/S");
+				
+				progressMsg.setSpeed(speed.toString());
+				
+				//大致剩余时间
+				BigDecimal ltime = new BigDecimal(0);
+				if(!speed.equals(new BigDecimal(0))){
+					ltime = ll.divide(speed,0,BigDecimal.ROUND_HALF_UP);
+				}
+				System.out.print("大致剩余时间为"+ltime+"秒");
+				
+				progressMsg.setLtime(ltime.toString());
+				
+				request.getSession().setAttribute("progressMsg",progressMsg); //将进度条需要的数据定入Session域中。
+				
+				System.out.println();
+
+			}
+		});
 		
 		try {
 			

@@ -26,5 +26,12 @@ public interface UserService extends Service {
 	 * @param password
 	 */
 	User getUserByNameAndPsw(String username, String password);
+
+	/**
+	 * 检查用户名是否存在。
+	 * @param username
+	 * @return
+	 */
+	boolean hasUser(String username);
 	
 }

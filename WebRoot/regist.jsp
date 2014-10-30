@@ -3,6 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+  	<script language="JavaScript" type="text/javascript" src="./js/jquery-1.6.1.js"></script>
   	<script type="text/javascript">
   		
   		function changeImg(img){
@@ -98,4 +99,31 @@
 		</form>
     </div>
   </body>
+  
+	<script language="JavaScript">
+	  	
+			$(function(){
+			
+				$("input[name='username']").change(function(){
+					
+					var username = $(this).val();
+					$.post("${pageContext.request.contextPath}/ValiNameServlet",{username:username},function(data){
+						
+						var json = eval("("+data+")");
+						if(json.stat==1){
+							$("#username_msg").html("<font color='red'>"+ json.msg +"</font>");
+						}else if(json.stat==0){
+							$("#username_msg").html("<font color='green'>"+ json.msg +"</font>");
+						}
+					});
+					
+				});
+
+			});
+
+		
+	  </script>
+  
+  
+  
 </html>

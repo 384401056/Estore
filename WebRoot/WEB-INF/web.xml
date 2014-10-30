@@ -108,6 +108,16 @@
     <servlet-name>delOrderServlet</servlet-name>
     <servlet-class>com.blueice.web.delOrderServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ValiNameServlet</servlet-name>
+    <servlet-class>com.blueice.web.ValiNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadMsg</servlet-name>
+    <servlet-class>com.blueice.web.UploadMsg</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -178,6 +188,14 @@
   <servlet-mapping>
     <servlet-name>delOrderServlet</servlet-name>
     <url-pattern>/delOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ValiNameServlet</servlet-name>
+    <url-pattern>/ValiNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadMsg</servlet-name>
+    <url-pattern>/UploadMsg</url-pattern>
   </servlet-mapping>
  
 </web-app>
