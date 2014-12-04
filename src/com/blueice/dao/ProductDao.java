@@ -3,8 +3,12 @@ package com.blueice.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.jws.WebService;
+
 import com.blueice.domain.Product;
 
+
+@WebService
 public interface ProductDao extends Dao {
 
 	/**

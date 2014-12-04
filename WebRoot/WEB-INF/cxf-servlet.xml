@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd
+                       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- 通过配置文件的方式来发布一个不带接口的WebService -->
+    <!--  <jaxws:endpoint id="EstoreServer" implementor="com.blueice.dao.ProductDao" address="/EstoreServer" />  -->
+      
+    <!-- 通过配置文件的方式来发布一个带接口的WebService -->  
+    <jaxws:server id="EstoreServer" address="/EstoreServer" serviceClass="com.blueice.dao.ProductDao">
+    	<jaxws:serviceBean>
+    		<bean class="com.blueice.dao.ProductDaoImpl"></bean>
+    	</jaxws:serviceBean>
+    	
+    </jaxws:server>
+     
+</beans>

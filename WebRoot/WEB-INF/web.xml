@@ -9,6 +9,22 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- WebService 拦截器 -->
+  <servlet>
+  	<servlet-name>cxf</servlet-name>
+  	<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+  	<init-param>
+  		<!-- Spring的配置文件 -->
+  		<param-name>config-location</param-name>
+  		<param-value>/WEB-INF/cxf-servlet.xml</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>cxf</servlet-name>
+  	<url-pattern>/ws/*</url-pattern>
+  </servlet-mapping>
+  
   
   <!-- 全站参数配置 -->
   <context-param>
